@@ -1,7 +1,16 @@
-# Personal originals and drafts — keep out of the public repo
+# Unused originals and drafts — the site ships optimised versions instead.
+# images/kk2.jpg is deliberately not listed: it is the hero photo.
+images/kk1.jpg
+images/kk_standing.jpeg
+images/IMG_20250615_161406801.jpeg
 images/my_pic_2.jpg
 images/my_pic_3.jpg
 CV_Khushboo_K_Rao_2026.docx
 css/style_file.css
 first_gui.py
+preview.html
 .claude/
+
+# Python cache
+__pycache__/
+*.pyc

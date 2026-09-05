@@ -11,17 +11,29 @@
     <meta property="og:description"
         content="Postdoctoral researcher studying unusual stellar populations in open clusters with photometry, spectroscopy, time-series data, and machine learning.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="images/profile.jpg">
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Apply the saved colour scheme before first paint to avoid a flash.
+        (function () {
+            try {
+                var t = localStorage.getItem("theme");
+                if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+            } catch (e) { }
+        })();
+    </script>
 </head>
 
 <body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
         <a class="brand" href="#top">Khushboo K. Rao</a>
@@ -35,25 +47,28 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
     </header>
 
-    <main id="top">
+    <main id="main">
 
         <!-- ============ HERO ============ -->
-        <section class="hero">
+        <section class="hero" id="top">
             <div class="hero-inner">
                 <div class="hero-text">
-                    <p class="hero-kicker">Observational Astrophysicist</p>
+                    <p class="hero-kicker">Astrophysicist &amp; Explorer </p>
                     <h1>Khushboo K.&nbsp;Rao <span class="pronouns">(she/her)</span></h1>
                     <p class="hero-role">Postdoctoral Researcher · Institute of Astronomy,<br>
                         National Central University, Taiwan</p>
                     <p class="hero-tagline">
-                        I study the stars that seem to break the rules of standard stellar evolution 
-                        and use every method it takes to find out why.
+                        I study the stars that seem to break the rules of standard stellar
+                        evolution — and use every method it takes to find out why.
                     </p>
                     <div class="hero-actions">
                         <a class="btn btn-primary" href="CV_Khushboo_K_Rao_2026.pdf">Download CV (PDF)</a>
-                        <a class="btn btn-ghost" href="#publications">Publications</a>
+                        <a class="btn btn-ghost" href="#research">Explore the research</a>
                     </div>
                     <ul class="hero-links">
                         <li><a href="mailto:khushboo@astro.ncu.edu.tw">Email</a></li>
@@ -66,50 +81,51 @@
                     </ul>
                 </div>
                 <figure class="hero-photo">
-                    <img src="images/kk2.jpg" alt="Portrait of Khushboo K. Rao" width="720" height="900">
+                    <img src="images/kk2.jpg" alt="Portrait of Khushboo K. Rao" width="760" height="950">
                 </figure>
             </div>
         </section>
 
-        <!-- ============ STATS ============ -->
-<!--        <section class="stats" aria-label="Research at a glance">
-            <div class="stat">
-                <span class="stat-number">15</span>
-                <span class="stat-label">Refereed publications</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">7</span>
-                <span class="stat-label">First-author papers</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">10</span>
-                <span class="stat-label">h-index (ADS, 2026)</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">6</span>
-                <span class="stat-label">Awarded observing programs</span>
-            </div>
-        </section> -->
+        <!-- ============ RECENT ============ -->
+        <section class="recent" aria-label="Recent highlights">
+            <ol class="recent-list">
+                <li>
+                    <span class="recent-date">Aug 2026</span>
+                    <span class="recent-body">Invited seminar at the Center for Astrophysics |
+                        Harvard &amp; Smithsonian</span>
+                </li>
+                <li>
+                    <span class="recent-date">2026A</span>
+                    <span class="recent-body">Awarded 36.3 h on Gemini North / MAROON-X as Science-PI,
+                        to decipher the origins of yellow stragglers</span>
+                </li>
+                <li>
+                    <span class="recent-date">2026</span>
+                    <span class="recent-body">First-author study of extended main-sequence turnoffs
+                        published in <em>The Astrophysical Journal</em></span>
+                </li>
+            </ol>
+        </section>
 
         <!-- ============ ABOUT ============ -->
         <section id="about" class="section">
             <h2>About</h2>
             <div class="about-grid">
-                <div>
-                    <p>
+                <div class="about-prose">
+                    <p class="lede">
                         I am an astrophysicist who loves to explore how stars are born, evolve, and
                         sometimes break the rules — both individually and as members of clusters.
+                    </p>
+                    <p>
                         Star clusters are natural laboratories that reveal the complex lives of
                         stars, and my work focuses on how their members depart from canonical
                         evolutionary pathways.
                     </p>
                     <p>
-                        My research uncovers the physical mechanisms behind unusual stellar
-                        populations, such as blue stragglers, blue lurkers, and fast and slow
-                        rotater (intermediate-mass regime). By combining large-scale surveys with
-                        data-driven methods, I aim to understand how rotation, binarity, and stellar
-                        interactions shape the evolution of both individual stars and their host
-                        clusters.
+                        My research uncovers the physical mechanisms behind the appearance of unusual stars. By combining large-scale surveys
+                        with data-driven methods, I aim to understand how rotation, binarity, and
+                        stellar interactions shape the evolution of both individual stars and their
+                        host clusters.
                     </p>
                     <p>
                         I completed my Ph.D. in observational astrophysics at BITS Pilani, India
@@ -121,7 +137,7 @@
                     <ul>
                         <li>Open clusters</li>
                         <li>Blue stragglers &amp; blue lurkers</li>
-			<li>Yellow stragglers </li>
+                        <li>Yellow stragglers</li>
                         <li>Extended main-sequence turnoffs</li>
                         <li>Stellar rotation</li>
                         <li>Herbig Ae/Be stars</li>
@@ -139,53 +155,175 @@
         <!-- ============ RESEARCH ============ -->
         <section id="research" class="section section-alt">
             <h2>Research</h2>
-            <div class="cards">
-                <article class="card">
-                    <h3>Blue stragglers &amp; blue lurkers</h3>
+            <p class="section-lead">
+                Five threads run through my work. Each one starts from the same question — what
+                happens when a star in a cluster stops behaving like its neighbours?
+            </p>
+
+            <article class="research-item">
+                <figure class="research-figure">
+                    <picture>
+                        <source data-dark srcset="images/figures/cmd-dark.svg"
+                            media="(prefers-color-scheme: dark)">
+                        <img src="images/figures/cmd-light.svg" loading="lazy"
+                            alt="Colour–magnitude diagram showing blue stragglers above and blue-ward of the main-sequence turnoff, yellow stragglers between them and the giant branch, and blue lurkers sitting on the main sequence.">
+                    </picture>
+                    <figcaption>Schematic: where each population sits in a cluster
+                        colour–magnitude diagram.</figcaption>
+                </figure>
+                <div class="research-body">
+                    <h3>Blue stragglers, blue lurkers &amp; yellow stragglers</h3>
                     <p>
-                        Stars that appear younger than their cluster should allow -- rejuvenated by
+                        Stars that appear younger than their cluster should allow — rejuvenated by
                         mass transfer, mergers, and collisions. I characterise these populations,
-                        their hot companions, and formation pathways using multiwavelength photometry from
-                        AstroSat/UVIT and Swift/UVOT to Infrared data, spectroscopy, and light curve modeling.
+                        their hot companions, and formation pathways using multiwavelength
+                        photometry from AstroSat/UVIT and Swift/UVOT to infrared data, spectroscopy,
+                        and light-curve modelling.
                     </p>
-                </article>
-                <article class="card">
+                    <p class="research-links">
+                        <a href="https://doi.org/10.1093/mnrasl/slac122">Double sequences in Berkeley 17</a>
+                        <a href="https://doi.org/10.1093/mnras/stac2241">Hot populations of Melotte 66</a>
+                        <a href="https://doi.org/10.1093/mnras/stac2421">NGC 2506 with AstroSat/UVIT</a>
+                        <a href="https://doi.org/10.1093/mnras/stac207">NGC 7789 with UVIT/AstroSat</a>
+                        <a href="https://doi.org/10.3847/1538-3881/ad85d2">Blue and yellow stragglers of
+                            Berkeley 39</a>
+                        <a href="https://doi.org/10.1051/0004-6361/202558188">Blue lurker census</a>
+                    </p>
+                    <p class="research-links research-links-conf">
+                        <span class="research-links-label">Proceedings</span>
+                        <a href="https://popups.uliege.be/0037-9565/index.php?id=11667">NGC 7789 and NGC 2506
+                            with UVIT</a>
+                        <a href="https://arxiv.org/abs/2308.06195">Berkeley 39 with Swift/UVOT</a>
+                    </p>
+                </div>
+            </article>
+
+            <article class="research-item">
+                <figure class="research-figure">
+                    <picture>
+                        <source data-dark srcset="images/figures/aplus-dark.svg"
+                            media="(prefers-color-scheme: dark)">
+                        <img src="images/figures/aplus-light.svg" loading="lazy"
+                            alt="Cumulative radial distributions of blue stragglers and a reference population, with the area between the two curves shaded to show the A-plus parameter.">
+                    </picture>
+                    <figcaption>Schematic: A⁺ is the area between the two cumulative
+                        distributions.</figcaption>
+                </figure>
+                <div class="research-body">
                     <h3>Dynamical ages of open clusters</h3>
                     <p>
                         Blue stragglers sink toward cluster centres as clusters relax, making them
-                        natural dynamical clocks. In a series of papers, I developed the
-                        use of the A+ parameter to measure the dynamical ages of open clusters,
-                         and also traced how they evolve toward dissolution.
+                        natural dynamical clocks. In a series of papers, I developed the use of the
+                        A⁺ parameter to measure the dynamical ages of open clusters, and also traced
+                        how they evolve toward dissolution.
                     </p>
-                </article>
-                <article class="card">
+                    <p class="research-links">
+                        <a href="https://doi.org/10.1093/mnras/stab2894">A⁺ parameter, Paper I</a>
+                        <a href="https://doi.org/10.1093/mnras/stad2587">Paper II</a>
+                        <a href="https://doi.org/10.3847/1538-3881/ad7a72">Four old open clusters</a>
+                        <a href="https://doi.org/10.1093/mnras/staa1667">Blue stragglers in seven
+                            clusters</a>
+                    </p>
+                    <p class="research-links research-links-conf">
+                        <span class="research-links-label">Proceedings</span>
+                        <a href="https://popups.uliege.be/0037-9565/index.php?id=11676">Setting up a
+                            dynamical clock</a>
+                    </p>
+                </div>
+            </article>
+
+            <article class="research-item">
+                <figure class="research-figure">
+                    <picture>
+                        <source data-dark srcset="images/figures/emsto-dark.svg"
+                            media="(prefers-color-scheme: dark)">
+                        <img src="images/figures/emsto-light.svg" loading="lazy"
+                            alt="Zoom on a cluster turnoff showing slow rotators along the non-rotating isochrone and fast rotators displaced to redder, fainter positions, broadening the turnoff.">
+                    </picture>
+                    <figcaption>Schematic: one age, two spin rates — and a turnoff that
+                        spreads.</figcaption>
+                </figure>
+                <div class="research-body">
                     <h3>Rotation &amp; extended main-sequence turnoffs</h3>
                     <p>
                         Why do coeval stars fan out at the turnoff of young and intermediate-age
-                        clusters (younger than 2 Gyr age)? I investigate how rotation and braking of intermediate-mass stars (1.5--8 solar masses)
-                        sculpt extended
-                        main-sequence turnoffs across Galactic open clusters using N-body simulations, multiwavelength photometry, and spectroscopy.
+                        clusters (younger than 2 Gyr)? I investigate how rotation and braking of
+                        intermediate-mass stars (1.5–8 solar masses) sculpt extended main-sequence
+                        turnoffs across Galactic open clusters using N-body simulations,
+                        multiwavelength photometry, and spectroscopy.
                     </p>
-                </article>
-                <article class="card">
+                    <p class="research-links">
+                        <a href="https://doi.org/10.3847/1538-4357/ae5b9e">Extended turnoffs in Galactic open
+                            clusters</a>
+                        <a href="https://arxiv.org/abs/2607.18681">A merger origin for the blue main
+                            sequence of NGC 3532</a>
+                    </p>
+                    <p class="research-links research-links-conf">
+                        <span class="research-links-label">Proceedings</span>
+                        <a href="https://arxiv.org/abs/2512.05458">The unusually extended turnoff of
+                            NGC 3532</a>
+                    </p>
+                </div>
+            </article>
+
+            <article class="research-item">
+                <figure class="research-figure">
+                    <picture>
+                        <source data-dark srcset="images/figures/eclipse-dark.svg"
+                            media="(prefers-color-scheme: dark)">
+                        <img src="images/figures/eclipse-light.svg" loading="lazy"
+                            alt="Phase-folded light curve of an eclipsing binary showing a deep primary eclipse, a shallower secondary eclipse, and a fitted model.">
+                    </picture>
+                    <figcaption>Schematic: eclipse depths and durations give masses and radii
+                        directly.</figcaption>
+                </figure>
+                <div class="research-body">
                     <h3>Variable stars &amp; eclipsing binaries</h3>
                     <p>
-                        Time-series photometry from TESS, Kepler, and Gaia
-                        revealed eclipsing binaries and pulsators in clusters. I use light-curve modelling
-                        and radial-velocity monitoring of eclipsing blue stragglers constrain their
+                        Time-series photometry from TESS, Kepler, and Gaia revealed eclipsing
+                        binaries and pulsators in clusters. I use light-curve modelling and
+                        radial-velocity monitoring of eclipsing blue stragglers to constrain their
                         masses, luminosities, and evolutionary state.
                     </p>
-                </article>
-                <article class="card">
+                    <p class="research-links">
+                        <a href="https://doi.org/10.1017/pasa.2026.10150">Variables and X-ray sources in
+                            three open clusters</a>
+                    </p>
+                    <p class="research-note">
+                        Ongoing, with spectroscopy awarded on VLT/GIRAFFE, Gemini/GHOST and
+                        Gemini North/MAROON-X.
+                    </p>
+                </div>
+            </article>
+
+            <article class="research-item">
+                <figure class="research-figure">
+                    <picture>
+                        <source data-dark srcset="images/figures/membership-dark.svg"
+                            media="(prefers-color-scheme: dark)">
+                        <img src="images/figures/membership-light.svg" loading="lazy"
+                            alt="Proper-motion diagram in which a tight clump of cluster members is separated from a broad scatter of Milky Way field stars.">
+                    </picture>
+                    <figcaption>Schematic: members share one motion; the field does not.
+                    </figcaption>
+                </figure>
+                <div class="research-body">
                     <h3>Machine-learning cluster membership</h3>
                     <p>
-                        Reliable membership is the foundation of every cluster study. The
-                        ML-MOC, a kNN + Gaussian-mixture approach to determining open cluster
-                        members from Gaia data without hand-tuned cuts, now applied across dozens of
-                        cluster studies.
+                        Reliable membership is the foundation of every cluster study. ML-MOC, a
+                        kNN + Gaussian-mixture approach to determining open cluster members from
+                        Gaia data without hand-tuned cuts, is now applied across dozens of cluster
+                        studies. The same membership work traces clusters out into their tidal
+                        tails, where the field finally takes them apart.
                     </p>
-                </article>
-            </div>
+                    <p class="research-links">
+                        <a href="https://doi.org/10.1093/mnras/stab118">ML-MOC</a>
+                        <a href="https://doi.org/10.1093/mnras/stab1404">Tidal tails in NGC 752</a>
+                        <a href="https://doi.org/10.1093/mnras/stac2906">Tidal tails in disintegrating
+                            clusters</a>
+                    </p>
+                </div>
+            </article>
 
             <h3 class="subheading">Awarded telescope time</h3>
             <ul class="telescope-list">
@@ -232,103 +370,104 @@
                 or as a <a href="Khushboo_List_of_Publications.pdf">PDF</a>.
             </p>
 
-
-            <h3 class="subheading">Publications</h3>
             <ol class="publist" reversed>
-		<li><span class="firstauthor-badge">first author</span>
+                <li><span class="firstauthor-badge">first author</span>
                     <strong>Rao, K. K.</strong>; Banerjee, S. (2026).
                     <em>Examining the stellar-merger origin of the blue main sequence in the open cluster
                         NGC 3532 with N-body simulations.</em>
-                    submitted, <a href="https://arxiv.org/abs/2607.18681">arXiv:2607.18681</a>
+                    submitted <a class="pub-link" href="https://arxiv.org/abs/2607.18681">arXiv</a>
                 </li>
                 <li><span class="firstauthor-badge">first author</span>
                     <strong>Rao, K. K.</strong>; Chen, W. (2026).
                     <em>Investigating Extended Main-Sequence Turnoffs in Galactic Open Clusters.</em>
-                    ApJ 1002, 103
+                    <a href="https://doi.org/10.3847/1538-4357/ae5b9e">ApJ 1002, 103</a>
                 </li>
                 <li>Jadhav, V. V.; <strong>Rao, K. K.</strong>; Reggiani, E. (2026).
                     <em>A rotation-based census of blue lurker candidates in open clusters.</em>
-                    A&amp;A 707, A275
+                    <a href="https://doi.org/10.1051/0004-6361/202558188">A&amp;A 707, A275</a>
                 </li>
                 <li>Dage, K. C.; Hunt, E. L.; Anderson-Baldwin, J.; … <strong>Rao, K. K.</strong>; …
                     [14 authors, position 5] (2026).
                     <em>The Secret Lives of Open Clusters: a Multiwavelength Examination of Three Open
-                        Clusters.</em> PASA 43, e013
+                        Clusters.</em> <a href="https://doi.org/10.1017/pasa.2026.10150">PASA 43, e013</a>
                 </li>
                 <li>Chand, K.; <strong>Rao, K.</strong>; Vaidya, K.; Panthi, A. (2024).
                     <em>Characterization of blue and yellow straggler stars of Berkeley 39 using
-                        Swift/UVOT.</em> AJ 168, 278
+                        Swift/UVOT.</em> <a href="https://doi.org/10.3847/1538-3881/ad85d2">AJ 168, 278</a>
                 </li>
                 <li>Balan, S.; <strong>Rao, K. K.</strong>; Vaidya, K.; Agarwal, M.; et al. [5 authors] (2024).
                     <em>Dynamical Evolution of Four Old Galactic Open Clusters traced by their constituent
-                        stars with Gaia DR3.</em> AJ 168, 204
+                        stars with Gaia DR3.</em> <a href="https://doi.org/10.3847/1538-3881/ad7a72">AJ 168, 204</a>
                 </li>
                 <li><span class="firstauthor-badge">first author</span>
                     <strong>Rao, K. K.</strong>; Vaidya, K.; Agarwal, M.; Balan, S.; et al. (2023).
                     <em>Determination of dynamical ages of open clusters through the A+ parameter
-                        (Paper II).</em> MNRAS 526, 1057–1074
+                        (Paper II).</em> <a href="https://doi.org/10.1093/mnras/stad2587">MNRAS 526, 1057–1074</a>
                 </li>
                 <li><span class="firstauthor-badge">first author</span>
                     <strong>Rao, K. K.</strong>; Bhattacharya, S.; Vaidya, K.; Agarwal, M. (2022).
                     <em>Discovery of double BSS sequences in the old Galactic open cluster
-                        Berkeley 17.</em> MNRAS Letters 518, L7–L12
+                        Berkeley 17.</em> <a href="https://doi.org/10.1093/mnrasl/slac122">MNRAS: Letters 518, L7–L12</a>
                 </li>
                 <li>Bhattacharya, S.; <strong>Rao, K. K.</strong>; Agarwal, M.; Balan, S.; et al. [5 authors] (2022).
                     <em>A Gaia EDR3 search for tidal tails in disintegrating open clusters.</em>
-                    MNRAS 517, 3525–3549
+                    <a href="https://doi.org/10.1093/mnras/stac2906">MNRAS 517, 3525–3549</a>
                 </li>
                 <li>Panthi, A.; Vaidya, K.; Jadhav, V.; <strong>Rao, K. K.</strong>; et al. [7 authors] (2022).
                     <em>UOCS VIII. Ultraviolet study of the open cluster NGC 2506 using ASTROSAT.</em>
-                    MNRAS 516, 5318–5330
+                    <a href="https://doi.org/10.1093/mnras/stac2421">MNRAS 516, 5318–5330</a>
                 </li>
                 <li><span class="firstauthor-badge">first author</span>
                     <strong>Rao, K. K.</strong>; Vaidya, K.; Agarwal, M.; Panthi, A.; et al. [6 authors] (2022).
                     <em>Characterization of hot populations of Melotte 66 open cluster using
-                        Swift/UVOT.</em> MNRAS 516, 2444–2454
+                        Swift/UVOT.</em> <a href="https://doi.org/10.1093/mnras/stac2241">MNRAS 516, 2444–2454</a>
                 </li>
                 <li>Vaidya, K.; Panthi, A.; Agarwal, M.; … <strong>Rao, K. K.</strong>; … [7 authors, position 5]
                     (2022).
                     <em>UOCS VII. Blue Straggler Populations of Open Cluster NGC 7789 with
-                        UVIT/AstroSat.</em> MNRAS 511, 2274–2284
+                        UVIT/AstroSat.</em> <a href="https://doi.org/10.1093/mnras/stac207">MNRAS 511, 2274–2284</a>
                 </li>
                 <li>Bhattacharya, S.; Agarwal, M.; <strong>Rao, K. K.</strong>; Vaidya, K. (2021).
                     <em>Tidal tails in the disintegrating open cluster NGC 752.</em>
-                    MNRAS 505, 1607–1613
+                    <a href="https://doi.org/10.1093/mnras/stab1404">MNRAS 505, 1607–1613</a>
                 </li>
                 <li><span class="firstauthor-badge">first author</span>
                     <strong>Rao, K. K.</strong>; Vaidya, K.; Agarwal, M.; Bhattacharya, S. (2021).
                     <em>Determination of dynamical ages of open clusters through the A+ parameter
-                        (Paper I).</em> MNRAS 508, 4919–4937
+                        (Paper I).</em> <a href="https://doi.org/10.1093/mnras/stab2894">MNRAS 508, 4919–4937</a>
                 </li>
                 <li>Agarwal, M.; <strong>Rao, K. K.</strong>; Vaidya, K.; Bhattacharya, S. (2021).
                     <em>ML-MOC: Machine Learning (kNN and GMM) based Membership Determination for Open
-                        Clusters.</em> MNRAS 502, 2582–2599
+                        Clusters.</em> <a href="https://doi.org/10.1093/mnras/stab118">MNRAS 502, 2582–2599</a>
                 </li>
                 <li>Vaidya, K.; <strong>Rao, K. K.</strong>; Agarwal, M.; Bhattacharya, S. (2020).
                     <em>Blue Straggler Populations of Seven Open Clusters with Gaia DR2.</em>
-                    MNRAS 496, 2402–2421
+                    <a href="https://doi.org/10.1093/mnras/staa1667">MNRAS 496, 2402–2421</a>
                 </li>
             </ol>
 
             <details class="pub-details">
-                <summary><h3 class="subheading inline">Conference proceedings</h3></summary>
+                <summary><span class="summary-label">Conference proceedings</span></summary>
                 <ol class="publist" reversed>
                     <li><strong>Rao, K. K.</strong>; Chen, W. (2025).
                         <em>Investigating Unusually Extended Main Sequence Turnoff of the Galactic Open
-                            Cluster NGC 3532.</em> IAU MODEST conference, submitted,
-                        <a href="https://arxiv.org/abs/2512.05458">arXiv:2512.05458</a>
+                            Cluster NGC 3532.</em> IAU MODEST conference, submitted
+                        <a class="pub-link" href="https://arxiv.org/abs/2512.05458">arXiv</a>
                     </li>
                     <li>Vaidya K.; et al. (2024).
                         <em>Blue straggler stars of NGC 7789 and NGC 2506 using AstroSat/UVIT.</em>
-                        Bulletin de la Société Royale des Sciences de Liège
+                        <a href="https://popups.uliege.be/0037-9565/index.php?id=11667">Bulletin de la
+                            Société Royale des Sciences de Liège 93, 250–261</a>
                     </li>
                     <li><strong>Rao, K. K.</strong>; et al. (2024).
                         <em>Blue straggler stars: setting up a dynamical clock for open clusters.</em>
-                        Bulletin de la Société Royale des Sciences de Liège
+                        <a href="https://popups.uliege.be/0037-9565/index.php?id=11676">Bulletin de la
+                            Société Royale des Sciences de Liège 93</a>
                     </li>
                     <li>Chand, K.; <strong>Rao, K. K.</strong>; Vaidya, K.; Panthi, A. (2023).
                         <em>Hot Stellar Populations of Berkeley 39 using Swift/UVOT.</em>
                         Bulletin de la Société Royale des Sciences de Liège, 262–272 (2024)
+                        <a class="pub-link" href="https://arxiv.org/abs/2308.06195">arXiv</a>
                     </li>
                 </ol>
             </details>
@@ -378,7 +517,7 @@
             </ul>
 
             <details class="pub-details">
-                <summary><h3 class="subheading inline">Contributed talks &amp; posters</h3></summary>
+                <summary><span class="summary-label">Contributed talks &amp; posters</span></summary>
                 <ul class="talk-list">
                     <li>
                         <span class="talk-date">May 2026</span>
@@ -489,6 +628,16 @@
                     </ul>
                 </div>
                 <div>
+                    <h3 class="subheading">Technical skills</h3>
+                    <ul class="plain-list">
+                        <li><strong>Observing</strong> — spectroscopy and photometry on 1 m and 4 m
+                            class telescopes; proposals as PI and Co-I</li>
+                        <li><strong>Analysis</strong> — light-curve modelling, SED fitting,
+                            time-series and variability analysis, N-body simulations</li>
+                        <li><strong>Data</strong> — Gaia, AstroSat/UVIT, Swift/UVOT, TESS, Kepler,
+                            VLT and Gemini spectroscopy</li>
+                        <li><strong>Computing</strong> — Python, R, ADQL, HTML and CSS</li>
+                    </ul>
                     <h3 class="subheading">Awards</h3>
                     <ul class="plain-list">
                         <li>UGC National Eligibility Test, All India Rank 146 (2018)</li>
@@ -519,6 +668,10 @@
                     <p>
                         <a href="mailto:khushboo@astro.ncu.edu.tw">khushboo@astro.ncu.edu.tw</a>
                     </p>
+                    <p class="contact-note">
+                        I am always glad to hear from students and collaborators interested in
+                        star clusters.
+                    </p>
                 </div>
                 <div>
                     <h3 class="subheading">Find me online</h3>
@@ -539,9 +692,10 @@
     </main>
 
     <footer class="site-footer">
-        <p>© 2026 Khushboo K. Rao · Astronomer, stargazer, rule-breaker-watcher</p>
+        <p>© 2026 Khushboo K. Rao · Watching the stars that break the rules</p>
     </footer>
 
+    <script src="js/site.js"></script>
 </body>
 
 </html>
