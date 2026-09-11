@@ -75,7 +75,10 @@ def finish(fig, ax, t, name, title, xlabel, ylabel,
     leg.set_zorder(8)
     fig.tight_layout(pad=0.9)
     path = os.path.join(OUT_DIR, f"{name}.svg")
-    fig.savefig(path, format="svg", facecolor=t["surface"])
+    # Date=None keeps regenerated files byte-identical, so a re-run that
+    # changes nothing does not show up as a diff.
+    fig.savefig(path, format="svg", facecolor=t["surface"],
+                metadata={"Date": None})
     plt.close(fig)
     return path
 
@@ -330,9 +333,12 @@ def main():
         "font.family": "sans-serif",
         "font.sans-serif": ["DejaVu Sans", "Liberation Sans"],
         "svg.fonttype": "path",
+        "svg.hashsalt": "khushboo-site",
         "figure.dpi": 100,
     })
-    for build in (fig_cmd, fig_aplus, fig_emsto, fig_eclipse, fig_membership):
+    # fig_cmd is kept for reference but no longer built: the site uses a real
+    # Gaia colour-magnitude diagram of NGC 2682 instead of the schematic.
+    for build in (fig_aplus, fig_emsto, fig_eclipse, fig_membership):
         for theme in THEMES:
             print("wrote", build(theme))
 
