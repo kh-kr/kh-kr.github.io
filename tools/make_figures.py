@@ -336,9 +336,9 @@ def main():
         "svg.hashsalt": "khushboo-site",
         "figure.dpi": 100,
     })
-    # fig_cmd is kept for reference but no longer built: the site uses a real
-    # Gaia colour-magnitude diagram of NGC 2682 instead of the schematic.
-    for build in (fig_aplus, fig_emsto, fig_eclipse, fig_membership):
+    # fig_cmd, fig_aplus and fig_emsto are kept for reference but no longer
+    # built: the site now uses real published plots in their place.
+    for build in (fig_eclipse, fig_membership):
         for theme in THEMES:
             print("wrote", build(theme))
 
