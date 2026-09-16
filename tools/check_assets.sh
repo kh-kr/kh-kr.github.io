@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Fail if index.html points at a local file that does not exist.
+# Fail if any page points at a local file that does not exist.
 #
 # A missing image or stylesheet does not break the build - the browser just
 # gets a 404 and draws nothing, which is easy to miss until the site is live.
@@ -11,29 +11,31 @@ EXT='html|css|js|png|jpg|jpeg|svg|webp|gif|pdf|ico|woff2?'
 
 missing=0
 checked=0
-while IFS= read -r ref; do
-    case "$ref" in
-        http:*|https:*|mailto:*|data:*|"#"*|"") continue ;;
-    esac
-    target="${ref%%#*}"          # drop any #fragment
-    target="${target%%\?*}"      # drop any ?query
-    # only consider things that actually look like a file path
-    printf '%s' "$target" | grep -qiE "\.($EXT)$" || continue
-    checked=$((checked + 1))
-    if [ ! -e "$target" ]; then
-        echo "  MISSING  $target"
-        missing=$((missing + 1))
-    fi
-done < <(grep -oE '(src|href|srcset|content)="[^"]*"' index.html \
-         | sed -E 's/^[a-z]+="//; s/"$//')
+for page in *.html; do
+    while IFS= read -r ref; do
+        case "$ref" in
+            http:*|https:*|mailto:*|data:*|"#"*|"") continue ;;
+        esac
+        target="${ref%%#*}"          # drop any #fragment
+        target="${target%%\?*}"      # drop any ?query
+        # only consider things that actually look like a file path
+        printf '%s' "$target" | grep -qiE "\.($EXT)$" || continue
+        checked=$((checked + 1))
+        if [ ! -e "$target" ]; then
+            echo "  MISSING  $target   (referenced by $page)"
+            missing=$((missing + 1))
+        fi
+    done < <(grep -oE '(src|href|srcset|content)="[^"]*"' "$page" \
+             | sed -E 's/^[a-z]+="//; s/"$//')
+done
 
 if [ "$missing" -gt 0 ]; then
     echo
-    echo "index.html references $missing file(s) that do not exist."
+    echo "$missing broken local reference(s)."
     echo "Check the spelling and the extension - .jpg and .jpeg are different filenames."
     echo "Files actually in images/:"
     ls images/ | sed 's/^/  /'
     exit 1
 fi
 
-echo "OK: all $checked local files referenced by index.html exist."
+echo "OK: all $checked local references across $(ls *.html | wc -l) pages exist."
